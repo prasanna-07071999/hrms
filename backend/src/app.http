@@ -1,0 +1,152 @@
+### AUTH APIs
+
+# Register Organisation + Admin
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "orgName": "PrasannaOrg",
+  "adminName": "Prasanna Admin",
+  "email": "admin@prasannaorg.com",
+  "password": "Prasanna123"
+}
+
+###
+
+# Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@prasannaorg.com",
+  "password": "Prasanna123"
+}
+
+###
+
+### EMPLOYEE APIs
+
+# List all employees
+GET http://localhost:5000/api/employees
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg3OTQ3MCwiZXhwIjoxNzYzOTA4MjcwfQ.sZlj9O-vIfwwE1EAsiJc3sJ2r5dt4lVTLZaXsHfj7dw
+
+###
+
+# Get employee by ID
+GET http://localhost:5000/api/employees/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+
+###
+
+# Create employee
+POST http://localhost:5000/api/employees
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Content-Type: application/json
+
+{
+  "firstName": "Prasanna",
+  "lastName": "Doe Kumae",
+  "email": "prasanna.doe@prasannaorg.com",
+  "phone": "9876543210"
+}
+
+###
+
+# Update employee
+PUT http://localhost:5000/api/employees/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Content-Type: application/json
+
+{
+  "phone": "9999999999"
+}
+
+###
+
+# Delete employee
+DELETE http://localhost:5000/api/employees/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+
+###
+
+### TEAM APIs
+
+# List all teams
+GET http://localhost:5000/api/teams
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+
+###
+
+# Get team by ID
+GET http://localhost:5000/api/teams/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+
+###
+
+# Create team
+POST http://localhost:5000/api/teams
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Content-Type: application/json
+
+{
+  "name": "Development",
+  "description": "Development Team"
+}
+
+###
+
+# Update team
+PUT http://localhost:5000/api/teams/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Content-Type: application/json
+
+{
+  "description": "Modified Development Team"
+}
+
+###
+
+# Delete team
+DELETE http://localhost:5000/api/teams/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+
+###
+
+### TEAM ASSIGNMENT APIs
+
+# Assign multiple employees to a team
+POST http://localhost:5000/api/teams/3/assign
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Content-Type: application/json
+
+{
+  "employeeIds": [1,2]
+}
+
+###
+
+# Assign single employee to a team
+POST http://localhost:5000/api/teams/3/assign
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Content-Type: application/json
+
+{
+  "employeeId": 3
+}
+
+###
+
+# Unassign employee from a team
+DELETE http://localhost:5000/api/teams/3/unassign
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Content-Type: application/json
+
+{
+  "employeeId": 2
+}
+
+### Get Logs (Admins Only)
+GET http://localhost:5000/api/logs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Accept: application/json
+
