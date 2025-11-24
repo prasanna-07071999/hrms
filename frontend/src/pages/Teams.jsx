@@ -58,6 +58,10 @@ const Teams = () => {
         history.push("/login")
     }
 
+    const handleAssignClick = (team) => {
+        history.push(`/teams/${team.id}/assign`);
+    };
+
     return (
         <div className="container mt-4">
             <div className="d-flex justify-content-between align-items-center mb-3">
@@ -79,7 +83,7 @@ const Teams = () => {
                             <th>ID</th>
                             <th>Name</th>
                             <th>Description</th>
-                            <th style={{ width: "120px" }}>Action</th>
+                            <th style={{ width: "180px" }}>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,10 +94,16 @@ const Teams = () => {
                                 <td>{team.description}</td>
                                 <td>
                                     <button
-                                        className="btn btn-sm btn-secondary"
+                                        className="btn btn-sm btn-secondary me-3"
                                         onClick={() => handleEditClick(team)}
                                     >
                                         Edit
+                                    </button>
+                                    <button
+                                        className="btn btn-sm btn-info"
+                                        onClick={() => handleAssignClick(team)}
+                                    >
+                                        Assign
                                     </button>
                                 </td>
                             </tr>
