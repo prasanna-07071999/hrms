@@ -1,4 +1,10 @@
 require('dotenv').config()
+const Organisation = require('./models/organisation');
+const User = require('./models/user');
+const Employee = require('./models/employee');
+const Team = require('./models/team');
+const EmployeeTeam = require('./models/employeeTeam');
+const Log = require('./models/log');
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000;
