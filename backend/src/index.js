@@ -25,10 +25,18 @@ const statRoute = require('./routes/stats')
 
 app.use(express.json());
 
+// app.use(cors({
+//     origin: "https://hrms-z5xo.onrender.com",
+//     methods: "GET,POST,PUT,DELETE",
+//     allowedHeaders: "Content-Type,Authorization"
+// }));
 app.use(cors({
-    origin: "https://hrms-z5xo.onrender.com",
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization"
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://hrms-z5xo.onrender.com', 'https://hrms-backend-s6la.onrender.com']
+    : 'http://localhost:3000',
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
+  credentials: true
 }));
 
 app.use('/api/auth', authRoutes);
