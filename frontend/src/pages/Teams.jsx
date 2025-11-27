@@ -16,7 +16,7 @@ const Teams = () => {
     
     const fetchTeams = useCallback(async () => {
         try {
-            const url = "http://localhost:5000/api/teams"
+            const url = "https://hrms-backend-s6la.onrender.com/api/teams"
             const options = {
                 headers: { Authorization: `Bearer ${token}` }
             }

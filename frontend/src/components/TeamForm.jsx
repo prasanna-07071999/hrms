@@ -47,8 +47,8 @@ const TeamForm = ({ selectedTeam, onSuccess, onCancel }) => {
     try {
       const token = localStorage.getItem("jwt");
       const url = selectedTeam
-        ? `http://localhost:5000/api/teams/${selectedTeam.id}`
-        : "http://localhost:5000/api/teams";
+        ? `https://hrms-backend-s6la.onrender.com/api/teams/${selectedTeam.id}`
+        : "https://hrms-backend-s6la.onrender.com/api/teams";
       const method = selectedTeam ? "PUT" : "POST";
       const response = await fetch(url, {
         method,

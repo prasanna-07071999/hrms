@@ -21,7 +21,7 @@ const Dashboard = () => {
     }
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/stats/summary")
+        fetch("https://hrms-backend-s6la.onrender.com/api/stats/summary")
             .then(res => res.json())
             .then(data => setStats(data))
             .catch(err => console.error("Failed to load stats:", err));

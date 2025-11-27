@@ -11,7 +11,7 @@ const LogsPage = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem("jwt");
-        const response = await fetch("http://localhost:5000/api/logs", {
+        const response = await fetch("https://hrms-backend-s6la.onrender.com/api/logs", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -53,7 +53,7 @@ const LogsPage = () => {
 
       {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
 
-      <table className="table table-bordered mt-3">
+      <table className="table table-bordered mt-3 text-center">
         <thead>
           <tr>
             <th>ID</th>

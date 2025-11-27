@@ -24,8 +24,8 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
         try {
         const token = localStorage.getItem("jwt");
         const url = selectedEmployee
-            ? `http://localhost:5000/api/employees/${selectedEmployee.id}`
-            : `http://localhost:5000/api/employees`;
+            ? `https://hrms-backend-s6la.onrender.com/api/employees/${selectedEmployee.id}`
+            : `https://hrms-backend-s6la.onrender.com/api/employees`;
 
         const method = selectedEmployee ? "PUT" : "POST";
 

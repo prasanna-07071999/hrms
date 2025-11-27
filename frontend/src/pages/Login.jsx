@@ -12,7 +12,7 @@ const Login = () => {
     const handleLogin = async (event) => {
         event.preventDefault()
         try {
-            const url = "http://localhost:5000/api/auth/login"
+            const url = "https://hrms-backend-s6la.onrender.com/api/auth/login"
             const options = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

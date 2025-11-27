@@ -5,7 +5,6 @@ const logMiddleware = (req, res, next) => {
 
   res.on("finish", () => {
     const method = req.method;
-    console.log(method)
     let event = "REQUEST HANDLED";
     if (method === "POST") event = "CREATE";
     else if (method === "PUT" || method === "PATCH") event = "UPDATE";

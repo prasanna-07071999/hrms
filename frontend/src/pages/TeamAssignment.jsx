@@ -10,7 +10,7 @@
     const token = localStorage.getItem("jwt");
 
     const fetchEmployees = useCallback(async () => {
-      const response = await fetch("http://localhost:5000/api/employees", {
+      const response = await fetch("https://hrms-backend-s6la.onrender.com/api/employees", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -18,7 +18,7 @@
     }, [token]);
 
     const fetchTeamDetails = useCallback(async () => {
-      const response = await fetch(`http://localhost:5000/api/teams/${teamId}`, {
+      const response = await fetch(`https://hrms-backend-s6la.onrender.com/api/teams/${teamId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -35,7 +35,7 @@
         alert("Select employee(s) to assign.");
         return;
       }
-      await fetch(`http://localhost:5000/api/teams/${teamId}/assign`, {
+      await fetch(`https://hrms-backend-s6la.onrender.com/api/teams/${teamId}/assign`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -52,7 +52,7 @@
         alert("Select an employee to unassign.");
         return;
       }
-      await fetch(`http://localhost:5000/api/teams/${teamId}/unassign`, {
+      await fetch(`https://hrms-backend-s6la.onrender.com/api/teams/${teamId}/unassign`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

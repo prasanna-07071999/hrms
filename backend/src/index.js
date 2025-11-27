@@ -24,7 +24,7 @@ const logRoutes = require('./routes/logRoutes');
 const statRoute = require('./routes/stats')
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://hrms-z5xo.onrender.com",
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization"
 }));
