@@ -3,41 +3,38 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000;
 
-const {sequelize} = require('./db')
-const Organisation = require('./models/organisation')
-const User = require('./models/user')
-const Employee = require('./models/employee')
-const Team = require('./models/team')
-const EmployeeTeam = require('./models/employeeTeam')
-const Log = require('./models/log')
-const errorHandler = require("./middlewares/errorHandler");
-const authMiddleware = require('./middlewares/authMiddleware')
-
-const seedData = require('./seed');
 const cors = require("cors");
-
-const authRoutes = require('./routes/auth')
-const teamRoutes = require('./routes/teams')
-const employeeRoutes = require('./routes/employees');
-const {logMiddleware} = require('./middlewares/logMiddleware');
-const logRoutes = require('./routes/logRoutes');
-const statRoute = require('./routes/stats')
 app.use(express.json());
+
 app.use(cors({
     origin: "https://hrms-z5xo.onrender.com",
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization"
 }));
+
+const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
+
+const { logMiddleware } = require('./middlewares/logMiddleware');
 app.use(logMiddleware);
-app.use(authMiddleware);  
+
+const authMiddleware = require('./middlewares/authMiddleware');
+app.use(authMiddleware);
+
+const teamRoutes = require('./routes/teams');
+const employeeRoutes = require('./routes/employees');
+const logRoutes = require('./routes/logRoutes');
+const statRoute = require('./routes/stats');
 
 app.use('/api/teams', teamRoutes);
 app.use('/api/employees', employeeRoutes);
 app.use('/api/stats', statRoute);
-app.use('/api/logs', logRoutes); 
+app.use('/api/logs', logRoutes);
 
+const errorHandler = require("./middlewares/errorHandler");
 app.use(errorHandler);
+
+module.exports = app;
 
 Organisation.hasMany(User, {foreignKey: 'organisationId'})
 User.belongsTo(Organisation, {foreignKey: 'organisationId'})
