@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import EmployeeForm from "../components/EmployeeForm";
+import BackButton from "../components/BackButton";
 
 const Employees = () => {
-    const history = useHistory();
+    // const history = useHistory();
     const [employees, setEmployees] = useState([]);
     const [errorMsg, setErrorMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
@@ -47,16 +48,10 @@ const Employees = () => {
         setSuccessMsg("Saved successfully!");
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem("jwt");
-        history.push("/login");
-    };
-
     return (
         <div className="container mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
             <h1>Employees</h1>
-            <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
         </div>
         {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
         {successMsg && <div className="alert alert-success">{successMsg}</div>}
@@ -78,7 +73,7 @@ const Employees = () => {
                 {employees.map((emp) => (
                 <tr key={emp.id}>
                     <td>{emp.id}</td>
-                    <td>{emp.first_name} {emp.last_name}</td>
+                    <td>{emp.firstName} {emp.lastName}</td>
                     <td>{emp.email}</td>
                     <td>{emp.phone}</td>
                     <td>
@@ -93,6 +88,7 @@ const Employees = () => {
                 ))}
             </tbody>
             </table>
+            <BackButton />
         </div>
         {showForm && (
             <EmployeeForm

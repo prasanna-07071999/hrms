@@ -77,3 +77,10 @@ const EmployeeTeam = require('./models/employeeTeam')
 }
 
 module.exports = dataSeed;
+
+
+
+// DB_HOST=dpg-d4hvg8chg0os738mf3mg-a
+// DB_USER=hrms_db_fcj7_user
+// DB_NAME=hrms
+// DB_PASSWORD=Vq6XoKRWAeOtqo3Mo9HphTycweGBc1c9

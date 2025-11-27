@@ -1,39 +1,27 @@
 const { createLog } = require("../utils/logger");
 
 const logMiddleware = (req, res, next) => {
-    res.on("finish", () => {
-        createLog({
-            req,
-            action: req.method + " " + req.originalUrl,
-            status: res.statusCode,
-            meta: {
-                body: req.body,
-                params: req.params,
-                query: req.query
-            }
-        });
+  const start = Date.now();
+
+  res.on("finish", () => {
+    const method = req.method;
+    console.log(method)
+    let event = "REQUEST HANDLED";
+    if (method === "POST") event = "CREATE";
+    else if (method === "PUT" || method === "PATCH") event = "UPDATE";
+    else if (method === "DELETE") event = "DELETE";
+    else if (method === "GET") event = "READ";
+
+    createLog({
+      req,
+      status: res.statusCode,
+      event
     });
+  });
 
-    next();
+  next();
 };
 
-const logAction = (action) => {
-    return (req, res, next) => {
-        res.on("finish", () => {
-            createLog({
-                req,
-                action,
-                status: res.statusCode,
-                meta: {
-                    body: req.body,
-                    params: req.params,
-                    query: req.query
-                }
-            });
-        });
+module.exports = { logMiddleware };
 
-        next();
-    };
-};
 
-module.exports = { logMiddleware, logAction };

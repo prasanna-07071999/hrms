@@ -10,8 +10,8 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
 
     useEffect(() => {
         if (selectedEmployee) {
-        setFirstName(selectedEmployee.first_name);
-        setLastName(selectedEmployee.last_name);
+        setFirstName(selectedEmployee.firstName);
+        setLastName(selectedEmployee.lastName);
         setEmail(selectedEmployee.email);
         setPhone(selectedEmployee.phone);
         }
@@ -36,13 +36,13 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
             "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
-            first_name: firstName,
-            last_name: lastName,
-            email,
-            phone
+                firstName,
+                lastName,
+                email,
+                phone
             })
         });
-
+        console.log(response)
         const data = await response.json();
 
         if (!response.ok) {
@@ -72,7 +72,7 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
                 <input
                 type="text"
                 className="form-control"
-                value={firstName}
+                value={firstName || ""}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
                 />
@@ -82,7 +82,7 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
                 <input
                 type="text"
                 className="form-control"
-                value={lastName}
+                value={lastName|| ""}
                 onChange={(e) => setLastName(e.target.value)}
                 required
                 />
@@ -93,7 +93,7 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
             <input
                 type="email"
                 className="form-control"
-                value={email}
+                value={email || ''}
                 onChange={(e) => setEmail(e.target.value)}
                 required
             />

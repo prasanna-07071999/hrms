@@ -18,8 +18,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "admin@prasannaorg.com",
-  "password": "Prasanna123"
+  "email": "admin1@basanttech.com",
+  "password": "Password123"
 }
 
 ###
@@ -28,106 +28,104 @@ Content-Type: application/json
 
 # List all employees
 GET http://localhost:5000/api/employees
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg3OTQ3MCwiZXhwIjoxNzYzOTA4MjcwfQ.sZlj9O-vIfwwE1EAsiJc3sJ2r5dt4lVTLZaXsHfj7dw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 
 ###
 
 # Get employee by ID
-GET http://localhost:5000/api/employees/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+GET http://localhost:5000/api/employees/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 
 ###
 
 # Create employee
 POST http://localhost:5000/api/employees
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 Content-Type: application/json
 
 {
-  "firstName": "Prasanna",
-  "lastName": "Doe Kumae",
-  "email": "prasanna.doe@prasannaorg.com",
-  "phone": "9876543210"
+  "firstName": "Sunil",
+  "lastName": "Kumar",
+  "email": "sunilkumar@prasannaorg.com",
+  "phone": "01234567890"
 }
 
 ###
 
 # Update employee
 PUT http://localhost:5000/api/employees/4
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 Content-Type: application/json
 
 {
-  "phone": "9999999999"
+  "phone": "7418529630"
 }
 
 ###
 
 # Delete employee
 DELETE http://localhost:5000/api/employees/4
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 ###
 
 ### TEAM APIs
 
 # List all teams
 GET http://localhost:5000/api/teams
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 ###
 
 # Get team by ID
-GET http://localhost:5000/api/teams/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+GET http://localhost:5000/api/teams/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 
 ###
 
 # Create team
 POST http://localhost:5000/api/teams
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 Content-Type: application/json
 
 {
-  "name": "Development",
-  "description": "Development Team"
+  "name": "HR Department",
+  "description": "HR Team should maintain the responsibilites of the company"
 }
 
 ###
 
 # Update team
-PUT http://localhost:5000/api/teams/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+PUT http://localhost:5000/api/teams/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 Content-Type: application/json
 
 {
-  "description": "Modified Development Team"
+  "description": "HR Team should maintain the data of Employees"
 }
 
 ###
 
 # Delete team
-DELETE http://localhost:5000/api/teams/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+DELETE http://localhost:5000/api/teams/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 
 ###
 
 ### TEAM ASSIGNMENT APIs
 
 # Assign multiple employees to a team
-POST http://localhost:5000/api/teams/3/assign
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+POST http://localhost:5000/api/teams/2/assign
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 Content-Type: application/json
 
 {
-  "employeeIds": [1,2]
+  "employeeIds": [1,2,3]
 }
 
 ###
 
 # Assign single employee to a team
-POST http://localhost:5000/api/teams/3/assign
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+POST http://localhost:5000/api/teams/2/assign
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 Content-Type: application/json
 
 {
@@ -137,8 +135,8 @@ Content-Type: application/json
 ###
 
 # Unassign employee from a team
-DELETE http://localhost:5000/api/teams/3/unassign
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+DELETE http://localhost:5000/api/teams/2/unassign
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 Content-Type: application/json
 
 {
@@ -147,6 +145,9 @@ Content-Type: application/json
 
 ### Get Logs (Admins Only)
 GET http://localhost:5000/api/logs
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2Mzg4MjcyMywiZXhwIjoxNzYzOTExNTIzfQ.Wlh8VfgGJpqYkzEGVE9lKDLBIl74qj8kJViIWxkb0oo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
 Accept: application/json
 
+### Get Stats Summary
+GET http://localhost:5000/api/stats/summary
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU

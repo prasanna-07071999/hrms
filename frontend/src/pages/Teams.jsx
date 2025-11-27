@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react"
 
 import { useHistory } from "react-router-dom"
 import TeamForm from "../components/TeamForm"
+import BackButton from "../components/BackButton";
 
 const Teams = () => {
     const history = useHistory()
@@ -53,11 +54,6 @@ const Teams = () => {
         setSuccessMsg("Saved successfully!")
     }
 
-    const handleLogout = () => {
-       localStorage.removeItem("jwt");
-        history.push("/login")
-    }
-
     const handleAssignClick = (team) => {
         history.push(`/teams/${team.id}/assign`);
     };
@@ -66,7 +62,6 @@ const Teams = () => {
         <div className="container mt-4">
             <div className="d-flex justify-content-between align-items-center mb-3">
                 <h2>Teams</h2>
-                <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
             </div>
 
             {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
@@ -110,6 +105,7 @@ const Teams = () => {
                         ))}
                     </tbody>
                 </table>
+                <BackButton />
             </div>
 
             {showForm && (

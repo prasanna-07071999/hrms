@@ -3,35 +3,27 @@ const router = express.Router();
 
 const Log = require("../models/log");
 const User = require("../models/user");
+const Organisation = require('../models/organisation')
 const adminOnly = require("../middlewares/adminOnly");
 
-// GET LOGS (Admin Only)
+
 router.get("/", adminOnly, async (req, res) => {
   try {
-    const limit = parseInt(req.query.limit) || 50;
-    const offset = parseInt(req.query.offset) || 0;
-
     const logs = await Log.findAll({
       include: [
-        {
-          model: User,
-          attributes: ["name", "email"]
-        }
+        { model: User, attributes: ["name", "email"] },
+        { model: Organisation, attributes: ["name"] }
       ],
-      order: [["createdAt", "DESC"]],
-      limit,
-      offset
+      order: [["timestamp", "DESC"]],
     });
 
     res.json({
       success: true,
       count: logs.length,
-      logs
+      logs,
     });
-
   } catch (err) {
-    console.error("Error fetching logs", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ message: "Failed to fetch logs", error: err.message });
   }
 });
 

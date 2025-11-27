@@ -1,4 +1,5 @@
   import React, { useEffect, useState, useCallback } from "react";
+  import BackButton from "../components/BackButton";
 
   const TeamAssignment = (props) => {
     const teamId = props.match.params.teamId;
@@ -72,19 +73,24 @@
     return (
       <div className="container mt-4">
         <h2 className="mb-3">Assign Employees to: {team.name}</h2>
-        <div className="mb-3">
-          <button
-            className="btn btn-primary me-2"
-            onClick={() => props.history.push("/employees")}
-          >
-            Employees
-          </button>
-          <button
-            className="btn btn-secondary"
-            onClick={() => props.history.push("/teams")}
-          >
-            Teams
-          </button>
+        <div className="mb-3 d-flex flex-row justify-content-between">
+          <div className="mb-3">
+            <button
+              className="btn btn-primary me-2"
+              onClick={() => props.history.push("/employees")}
+            >
+              Employees
+            </button>
+            <button
+              className="btn btn-secondary"
+              onClick={() => props.history.push("/teams")}
+            >
+              Teams
+            </button>
+          </div>
+          <div>
+            <BackButton />
+          </div>
         </div>
         <div className="row mt-4">
           <div className="col-md-6">

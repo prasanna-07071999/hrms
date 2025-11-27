@@ -10,7 +10,7 @@ const Employee = require('./models/employee')
 const Team = require('./models/team')
 const EmployeeTeam = require('./models/employeeTeam')
 const Log = require('./models/log')
-
+const errorHandler = require("./middlewares/errorHandler");
 const authMiddleware = require('./middlewares/authMiddleware')
 
 const seedData = require('./seed');
@@ -21,19 +21,23 @@ const teamRoutes = require('./routes/teams')
 const employeeRoutes = require('./routes/employees');
 const {logMiddleware} = require('./middlewares/logMiddleware');
 const logRoutes = require('./routes/logRoutes');
-
+const statRoute = require('./routes/stats')
+app.use(express.json());
 app.use(cors({
     origin: "http://localhost:3000",
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization"
 }));
-app.use(express.json())
+app.use('/api/auth', authRoutes);
 app.use(logMiddleware);
-app.use("/api/logs", authMiddleware, logRoutes);
-app.use('/api/auth', authRoutes)
-app.use('/api/teams', teamRoutes)
-app.use('/api/employees', employeeRoutes);
+app.use(authMiddleware);  
 
+app.use('/api/teams', teamRoutes);
+app.use('/api/employees', employeeRoutes);
+app.use('/api/stats', statRoute);
+app.use('/api/logs', logRoutes); 
+
+app.use(errorHandler);
 
 Organisation.hasMany(User, {foreignKey: 'organisationId'})
 User.belongsTo(Organisation, {foreignKey: 'organisationId'})

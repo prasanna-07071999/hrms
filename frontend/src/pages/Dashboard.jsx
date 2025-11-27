@@ -1,10 +1,15 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
     const history = useHistory();
     const token = localStorage.getItem("jwt");
+
+    const [stats, setStats] = useState({
+        totalEmployees: 0,
+        totalTeams: 0,
+        totalAdmins: 0
+    });
 
     let isAdmin = false;
 
@@ -12,15 +17,25 @@ const Dashboard = () => {
         try {
             const decoded = JSON.parse(atob(token.split(".")[1]));
             isAdmin = decoded.isAdmin;
-        } catch (err) {
-            console.error("Token decode failed:", err);
-        }
+        } catch {}
     }
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/stats/summary")
+            .then(res => res.json())
+            .then(data => setStats(data))
+            .catch(err => console.error("Failed to load stats:", err));
+    }, []);
 
     const handleLogout = () => {
         localStorage.removeItem("jwt");
         history.push("/login");
     };
+
+    if (!token) {
+        history.push("/login");
+        return null;
+    }
 
     return (
         <div
@@ -34,57 +49,34 @@ const Dashboard = () => {
                 className="card shadow-lg p-4"
                 style={{
                     borderRadius: "20px",
-                    width: "450px",
+                    width: "500px",
                     background: "#ffffffcc",
                     backdropFilter: "blur(10px)"
                 }}
             >
-                <h2 className="text-center mb-4 fw-bold" style={{ color: "#333" }}>
-                    <i className="bi bi-speedometer2 me-2"></i>
-                    Dashboard
-                </h2>
+                <h2 className="text-center mb-4 fw-bold">Dashboard</h2>
 
-                {!token && (
-                    <div className="alert alert-danger text-center">
-                        Please login again!
-                    </div>
-                )}
+                <div className="mb-4">
+                    <h5>Total Employees: {stats.totalEmployees}</h5>
+                    <h5>Total Teams: {stats.totalTeams}</h5>
+                    <h5>Total Admins: {stats.totalAdmins}</h5>
+                </div>
 
-                <button
-                    className="btn btn-primary w-100 mb-3 py-2"
-                    style={{ fontSize: "18px", borderRadius: "10px" }}
-                    onClick={() => history.push("/employees")}
-                >
-                    <i className="bi bi-people-fill me-2"></i>
+                <button className="btn btn-primary w-100 mb-3" onClick={() => history.push("/employees")}>
                     Manage Employees
                 </button>
 
-                <button
-                    className="btn btn-dark w-100 mb-3 py-2"
-                    style={{ fontSize: "18px", borderRadius: "10px" }}
-                    onClick={() => history.push("/teams")}
-                >
-                    <i className="bi bi-collection me-2"></i>
+                <button className="btn btn-dark w-100 mb-3" onClick={() => history.push("/teams")}>
                     Manage Teams
                 </button>
 
                 {isAdmin && (
-                    <button
-                        className="btn btn-warning w-100 mb-3 py-2"
-                        style={{ fontSize: "18px", borderRadius: "10px" }}
-                        onClick={() => history.push("/logs")}
-                    >
-                        <i className="bi bi-journal-text me-2"></i>
-                        View System Logs
+                    <button className="btn btn-warning w-100 mb-3" onClick={() => history.push("/logs")}>
+                        View Logs
                     </button>
                 )}
 
-                <button
-                    className="btn btn-danger w-100 py-2"
-                    style={{ fontSize: "18px", borderRadius: "10px" }}
-                    onClick={handleLogout}
-                >
-                    <i className="bi bi-box-arrow-right me-2"></i>
+                <button className="btn btn-danger w-100" onClick={handleLogout}>
                     Logout
                 </button>
             </div>

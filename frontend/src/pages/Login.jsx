@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useContext} from "react"
+import { AuthContext } from "../context/AuthContext"
 import { useHistory } from "react-router-dom"
 
 const Login = () => {
     const history = useHistory()
-
+    const { setToken } = useContext(AuthContext);
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [errorMsg, setErrorMsg] = useState("")
@@ -23,7 +24,7 @@ const Login = () => {
                 setErrorMsg(data.message || "Invalid credentials")
                 return
             }
-            localStorage.setItem("jwt", data.token);
+            setToken(data.token)
             history.push("/dashboard");
         }catch (error) {
         setErrorMsg("Something went wrong")
@@ -31,9 +32,9 @@ const Login = () => {
     }
 
     return (
-        <div className="d-flex flex-column justify-content-center">
+        <div>
             <h1 className="text-primary text-center pt-5">Human Resourse Management System</h1>
-            <div className="container mt-5 pt-5 d-flex flex-row justify-content-center">
+            <div className="container  pt-5 d-flex flex-row justify-content-center">
                 <div className="col-6 p-3">
                     <h1>Welcome to the HR Management System</h1>
                     <p className="text-secondary">
@@ -43,7 +44,7 @@ const Login = () => {
                         all your HR data secure and accessible in one place.
                     </p>
                 </div>
-                <div className="card p-4 shadow col-6">
+                <div className="card p-4 shadow col-6 mt-0">
                     <h1 className="text-center mb-4">Login</h1>
 
                     {errorMsg && (
@@ -77,8 +78,8 @@ const Login = () => {
                             </button>
                         </div>
                     </form>
-                   <div className="text-center mt-3">
-                        <p className="fw-bold">
+                   <div className="text-center mt-2">
+                        <p className="fw-bold btn btn-outline-dark">
                             Don't have an account? <a href="/register" className="text-primary">Register</a>
                         </p>
                     </div>
