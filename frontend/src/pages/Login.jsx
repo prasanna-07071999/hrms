@@ -1,6 +1,7 @@
 import React, { useState, useContext} from "react"
 import { AuthContext } from "../context/AuthContext"
 import { useHistory } from "react-router-dom"
+import { BASE_URL } from "../services/api"
 
 const Login = () => {
     const history = useHistory()
@@ -12,7 +13,7 @@ const Login = () => {
     const handleLogin = async (event) => {
         event.preventDefault()
         try {
-            const url = "https://hrms-backend-s6la.onrender.com/api/auth/login"
+            const url = `${BASE_URL}/api/auth/login`
             const options = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

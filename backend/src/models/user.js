@@ -17,7 +17,7 @@ const User = sequelize.define('User', {
     email: {type: DataTypes.STRING, unique: true, allowNull: false},
     passwordHash: {type: DataTypes.STRING, allowNull:false},
     name: {type: DataTypes.STRING, allowNull: false},
-    isAdmin: {type: DataTypes.BOOLEAN, defaultValue: false, allowNull: false}
+    isAdmin: {type: DataTypes.BOOLEAN, defaultValue: false, allowNull: false, field: 'is_admin'}
 },
 {
     tableName: 'users',

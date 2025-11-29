@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-
+import { BASE_URL } from "../services/api";
 import EmployeeForm from "../components/EmployeeForm";
 import BackButton from "../components/BackButton";
 
@@ -13,7 +13,7 @@ const Employees = () => {
 
     const fetchEmployees = useCallback(async () => {
         try {
-        const url = "https://hrms-backend-s6la.onrender.com/api/employees";
+        const url = `${BASE_URL}/api/employees`;
         const options = {
             headers: { Authorization: `Bearer ${token}` }
         };

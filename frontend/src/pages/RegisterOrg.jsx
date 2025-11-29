@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { BASE_URL } from "../services/api";
 
 const RegisterOrg = () => {
   const history = useHistory();
@@ -18,7 +19,7 @@ const RegisterOrg = () => {
     setSuccessMsg("");
 
     try {
-      const url = "https://hrms-backend-s6la.onrender.com/api/auth/register";
+      const url = `${BASE_URL}/api/auth/register`;
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

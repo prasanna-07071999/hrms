@@ -1,9 +1,10 @@
+require("../loadenv");
 require('dotenv').config()
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000;
 
-const { sequelize, connectwithDB } = require('./db')  // ADD THIS
+const { sequelize, connectwithDB } = require('./db') 
 const Organisation = require('./models/organisation')
 const User = require('./models/user')
 const Employee = require('./models/employee')
@@ -34,11 +35,12 @@ app.use(cors({
     credentials: true
 }));
 
-// AUTH ROUTES FIRST (no auth middleware needed)
 app.use('/api/auth', authRoutes);
 
+app.use(authMiddleware); 
+
 app.use(logMiddleware);
-app.use(authMiddleware);  
+ 
 
 app.use('/api/teams', teamRoutes);
 app.use('/api/employees', employeeRoutes);
@@ -62,7 +64,7 @@ Team.belongsToMany(Employee, {through: EmployeeTeam, foreignKey: 'teamId'})
 Log.belongsTo(Organisation, {foreignKey: 'organisationId'})
 Log.belongsTo(User, {foreignKey: 'userId'})
 
-// START SERVER WITH DB CONNECTION
+
 async function startServer() {
     try {
         await connectwithDB();  // Connect DB first

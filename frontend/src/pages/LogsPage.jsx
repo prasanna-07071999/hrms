@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BackButton from "../components/BackButton";
+import { BASE_URL } from "../services/api";
 
 const LogsPage = () => {
   const [logs, setLogs] = useState([]);
@@ -11,7 +12,7 @@ const LogsPage = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem("jwt");
-        const response = await fetch("https://hrms-backend-s6la.onrender.com/api/logs", {
+        const response = await fetch(`${BASE_URL}/api/logs`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

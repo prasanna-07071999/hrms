@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react"
-
+import { BASE_URL } from "../services/api";
 import { useHistory } from "react-router-dom"
 import TeamForm from "../components/TeamForm"
 import BackButton from "../components/BackButton";
@@ -16,7 +16,7 @@ const Teams = () => {
     
     const fetchTeams = useCallback(async () => {
         try {
-            const url = "https://hrms-backend-s6la.onrender.com/api/teams"
+            const url = `${BASE_URL}/api/teams`
             const options = {
                 headers: { Authorization: `Bearer ${token}` }
             }

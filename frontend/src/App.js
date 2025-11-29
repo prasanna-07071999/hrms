@@ -1,5 +1,6 @@
 // src/App.js
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import React from 'react';
 import { AuthProvider } from "./context/AuthContext";

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BASE_URL } from "../services/api";
 
 const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
     const [firstName, setFirstName] = useState("");
@@ -24,8 +25,8 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
         try {
         const token = localStorage.getItem("jwt");
         const url = selectedEmployee
-            ? `https://hrms-backend-s6la.onrender.com/api/employees/${selectedEmployee.id}`
-            : `https://hrms-backend-s6la.onrender.com/api/employees`;
+            ? `${BASE_URL}/api/employees/${selectedEmployee.id}`
+            : `${BASE_URL}/api/employees`;
 
         const method = selectedEmployee ? "PUT" : "POST";
 

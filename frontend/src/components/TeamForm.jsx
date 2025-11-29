@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BASE_URL } from "../services/api";
 
 const TeamForm = ({ selectedTeam, onSuccess, onCancel }) => {
   const [formState, setFormState] = useState({
@@ -47,8 +48,8 @@ const TeamForm = ({ selectedTeam, onSuccess, onCancel }) => {
     try {
       const token = localStorage.getItem("jwt");
       const url = selectedTeam
-        ? `https://hrms-backend-s6la.onrender.com/api/teams/${selectedTeam.id}`
-        : "https://hrms-backend-s6la.onrender.com/api/teams";
+        ? `${BASE_URL}/api/teams/${selectedTeam.id}`
+        : `${BASE_URL}/api/teams`;
       const method = selectedTeam ? "PUT" : "POST";
       const response = await fetch(url, {
         method,
