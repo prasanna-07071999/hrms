@@ -19,8 +19,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "admin1@basanttech.com",
-  "password": "Password123"
+  "email": "admin@sai.com",
+  "password": "Sai123"
 }
 
 ###
@@ -41,14 +41,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ
 
 # Create employee
 POST http://localhost:5000/api/employees
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsIm9yZ2FuaXNhdGlvbklkIjo4LCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NjQ4MzQwMzgsImV4cCI6MTc2NDg2MjgzOH0.MewAtVhvl7cek3wCJJj1W_vI76twmWj6b9LKKkomxt4
 Content-Type: application/json
 
 {
   "firstName": "Sunil",
   "lastName": "Kumar",
-  "email": "sunilkumar@prasannaorg.com",
-  "phone": "01234567890"
+  "email": "sunilkumar@sai.com",
+  "phone": "7894785960"
 }
 
 ###
@@ -146,7 +146,7 @@ Content-Type: application/json
 
 ### Get Logs (Admins Only)
 GET http://localhost:5000/api/logs
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm9yZ2FuaXNhdGlvbklkIjoxLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY0MjIzMTA5LCJleHAiOjE3NjQyNTE5MDl9.xW3L7phvnOKygREpf3cIW7bQ3hXg9L41C7gl3eFGlZU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsIm9yZ2FuaXNhdGlvbklkIjo4LCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NjQ4MzQwMzgsImV4cCI6MTc2NDg2MjgzOH0.MewAtVhvl7cek3wCJJj1W_vI76twmWj6b9LKKkomxt4
 Accept: application/json
 
 ### Get Stats Summary

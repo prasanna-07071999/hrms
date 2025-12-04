@@ -8,6 +8,7 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
     const [phone, setPhone] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
     const [loading, setLoading] = useState(false);
+    const [organisationId, setorganisationId]  = useState('')
 
     useEffect(() => {
         if (selectedEmployee) {
@@ -15,6 +16,7 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
         setLastName(selectedEmployee.lastName);
         setEmail(selectedEmployee.email);
         setPhone(selectedEmployee.phone);
+        setorganisationId(selectedEmployee.organisationId)
         }
     }, [selectedEmployee]);
 
@@ -40,7 +42,8 @@ const EmployeeForm = ({ selectedEmployee, onSuccess, onCancel }) => {
                 firstName,
                 lastName,
                 email,
-                phone
+                phone,
+                organisationId
             })
         });
         console.log(response)

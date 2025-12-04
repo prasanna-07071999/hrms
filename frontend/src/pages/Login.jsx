@@ -26,6 +26,7 @@ const Login = () => {
                 return
             }
             setToken(data.token)
+            localStorage.setItem("jwt", data.token); 
             history.push("/dashboard");
         }catch (error) {
         setErrorMsg("Something went wrong")
