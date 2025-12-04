@@ -5,10 +5,11 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-  "orgName": "PrasannaOrg",
-  "adminName": "Prasanna Admin",
-  "email": "admin@prasannaorg.com",
-  "password": "Prasanna123"
+  "orgName": "Sai",
+  "adminName": "Sai",
+  "email": "admin@sai.com",
+  "password": "Sai123",
+  "isAdmin": true
 }
 
 ###

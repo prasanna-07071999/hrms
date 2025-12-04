@@ -53,7 +53,7 @@ const register = async (request, response) => {
             organisationId: organisation.id,
             email,
             passwordHash: hashedPassword,
-            adminName,
+             name: adminName,
             isAdmin: Boolean(isAdmin) 
         });
 
