@@ -20,7 +20,6 @@ const Dashboard = () => {
         isAdmin: false
     });
 
-    // --- Decode JWT for user info ---
     useEffect(() => {
         if (token) {
             try {
@@ -38,7 +37,6 @@ const Dashboard = () => {
         }
     }, [token]);
 
-    // --- Fetch Dashboard Stats ---
     useEffect(() => {
         fetch(`${BASE_URL}/api/stats/summary`)
             .then(res => res.json())
