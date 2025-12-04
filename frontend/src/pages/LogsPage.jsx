@@ -6,12 +6,13 @@ const LogsPage = () => {
   const [logs, setLogs] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(true);
+  const token = localStorage.getItem("jwt");
+  console.log("JWT in Logs page:", token);
 
   useEffect(() => {
     const fetchLogs = async () => {
       setLoading(true);
       try {
-        const token = localStorage.getItem("jwt");
         const response = await fetch(`${BASE_URL}/api/logs`, {
           headers: {
             Authorization: `Bearer ${token}`,
